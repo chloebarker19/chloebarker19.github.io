@@ -89,10 +89,10 @@ server = function(input, output) {
     
     if (input$plotType == "hist") {
       bins = seq(min(x), max(x), length.out = input$bins + 1)
-      hist(x, breaks = bins, col = "royalblue1", border = "white",
+      hist(x, breaks = bins, col = "lightseagreen", border = "white",
            xlab = input$select, main = paste("Histogram of", input$select))
     } else {
-      boxplot(x, horizontal = TRUE, col = "magenta3",
+      boxplot(x, horizontal = TRUE, col = "deepskyblue4",
               xlab = input$select, main = paste("Boxplot of", input$select))
     }
   })
@@ -101,11 +101,11 @@ server = function(input, output) {
   output$scatterPlot = renderPlot({
     state_data = beer_state()
     
-    p = ggplot(state_data, aes(x = ABV, y = IBU)) + geom_point(color = "purple", alpha = 0.8) +
+    p = ggplot(state_data, aes(x = ABV, y = IBU)) + geom_point(color = "blue3", alpha = 0.8) +
       labs(title = "Scatterplot of IBU vs ABV", x = "ABV", y = "IBU")
     
     if (input$showReg) {
-      p = p + geom_smooth(method = "lm", se = FALSE, color = "aquamarine2")
+      p = p + geom_smooth(method = "lm", se = FALSE, color = "magenta1")
     }
     
     p
@@ -113,13 +113,13 @@ server = function(input, output) {
   
   # Additional plot 1: Box plots of ABV by State
   output$stateBoxplot <- renderPlot({
-    ggplot(beers, aes(x = State, y = ABV)) + geom_boxplot(fill = "deeppink2") +
+    ggplot(beers, aes(x = State, y = ABV)) + geom_boxplot(fill = "maroon3") +
       theme(axis.text.x = element_text(angle = 90)) + ggtitle("ABV Distribution by State") + xlab("State") + ylab("ABV")
   })
   
   # Additional plot 2: Box plots of IBU by State
   output$stateIBUBoxplot <- renderPlot({
-    ggplot(beers, aes(x = State, y = IBU)) + geom_boxplot(fill = "deeppink2") +
+    ggplot(beers, aes(x = State, y = IBU)) + geom_boxplot(fill = "maroon3") +
       theme(axis.text.x = element_text(angle = 90)) + ggtitle("IBU Distribution by State") + xlab("State") + ylab("IBU")
   })
   
