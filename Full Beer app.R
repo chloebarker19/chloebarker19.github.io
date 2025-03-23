@@ -1,31 +1,10 @@
----
-title: "Beer App"
-author: "chloebarker19"
-date: "2025-03-23"
-output: html_document
-runtime: shiny
----
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
-```{r}
 library(shiny)
 library(ggplot2)
 library(rsconnect)
 library(dplyr)
 
-beers = read.csv("Beers.csv", header = TRUE)
-breweries = read.csv("Breweries.csv", header = TRUE)
-beer_data = full_join(beers, breweries, by = "Brew_ID")
-beer_data = rename(beer_data, Beer = Name.x, Brewery = Name.y)
-
-sapply(beer_data, function(x) sum(is.na(x)))
-# 62 Missing ABV and 1005 missing IBU 
-beer_data = beer_data %>% select(Beer, IBU, ABV, State) %>% filter(!is.na(IBU)) 
-```
-
-```{r}
+beer_data = read.csv("beer_data.csv", header = TRUE)
 
 ui = fluidPage(
   # App title
@@ -149,4 +128,3 @@ server = function(input, output) {
 
 
 shinyApp(ui = ui, server = server)
-```
