@@ -46,4 +46,5 @@ beer_data = rename(beer_data, Beer = Name.x, Brewery = Name.y)
 sapply(beer_data, function(x) sum(is.na(x)))
 # 62 Missing ABV and 1005 missing IBU 
 beer_data = beer_data %>% select(Beer, IBU, ABV, State) %>% filter(!is.na(IBU)) 
+
 ```
