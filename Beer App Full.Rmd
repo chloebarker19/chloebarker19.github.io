@@ -135,13 +135,13 @@ server = function(input, output) {
   
   # Additional plot 1: Box plots of ABV by State
   output$stateBoxplot <- renderPlot({
-    ggplot(beers, aes(x = State, y = ABV)) + geom_boxplot(fill = "maroon3") +
+    ggplot(beer_state(), aes(x = State, y = ABV)) + geom_boxplot(fill = "maroon3") +
       theme(axis.text.x = element_text(angle = 90)) + ggtitle("ABV Distribution by State") + xlab("State") + ylab("ABV")
   })
   
   # Additional plot 2: Box plots of IBU by State
   output$stateIBUBoxplot <- renderPlot({
-    ggplot(beers, aes(x = State, y = IBU)) + geom_boxplot(fill = "maroon3") +
+    ggplot(beer_state(), aes(x = State, y = IBU)) + geom_boxplot(fill = "maroon3") +
       theme(axis.text.x = element_text(angle = 90)) + ggtitle("IBU Distribution by State") + xlab("State") + ylab("IBU")
   })
   
