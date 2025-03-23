@@ -1,0 +1,13 @@
+name: BeerAnalysisWebsite
+title: BeerAnalysisWebsite
+username: chloebarker19
+account: chloebarker19
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14314441
+bundleId: 9988269
+url: https://chloebarker19.shinyapps.io/BeerAnalysisWebsite/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|beer_data.csv|Beers_Analysis.Rmd|Beers.csv|Breweries.csv|README.md
